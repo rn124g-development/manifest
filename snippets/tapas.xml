@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+    <remote name="tapas"
+            fetch="ssh://git@github.com/rn124g-development"
+            revision="14" />
+
+    <!-- remove forked projects -->
+    <remove-project name="build" />
+    <remove-project name="LineageOS/android_hardware_qcom-caf_common" />
+    <remove-project name="packages_apps_Updates" />
+    <remove-project name="frameworks_base" />
+
+    <!-- Sync the specified projects from the "tapas" remote -->
+  <project path="build/make" name="build" groups="pdk" remote="tapas">
+    <linkfile dest="build/CleanSpec.mk" src="CleanSpec.mk" />
+    <linkfile dest="build/buildspec.mk.default" src="buildspec.mk.default" />
+    <linkfile dest="build/core" src="core" />
+    <linkfile dest="build/envsetup.sh" src="envsetup.sh" />
+    <linkfile dest="build/target" src="target" />
+    <linkfile dest="build/tools" src="tools" />
+  </project>
+
+  <project path="hardware/qcom-caf/common" name="hardware_qcom-caf_common" groups="qcom" remote="tapas" >
+    <!-- Add guard for AOSP hardware/qcom dir -->
+    <linkfile src="os_pickup_aosp.mk" dest="hardware/qcom/Android.mk" />
+    <!-- Add guards for CLO repositories -->
+    <linkfile src="os_pickup_sepolicy_vndr.mk" dest="device/qcom/sepolicy_vndr/SEPolicy.mk" />
+    <linkfile src="os_pickup_qssi.bp" dest="hardware/qcom-caf/msm8953/Android.bp" />
+    <linkfile src="os_pickup.mk" dest="hardware/qcom-caf/msm8953/Android.mk" />
+    <linkfile src="os_pickup.bp" dest="hardware/qcom-caf/msm8996/Android.bp" />
+    <linkfile src="os_pickup.mk" dest="hardware/qcom-caf/msm8996/Android.mk" />
+    <linkfile src="os_pickup.bp" dest="hardware/qcom-caf/msm8998/Android.bp" />
+    <linkfile src="os_pickup.mk" dest="hardware/qcom-caf/msm8998/Android.mk" />
+    <linkfile src="os_pickup_qssi.bp" dest="hardware/qcom-caf/sdm660/Android.bp" />
+    <linkfile src="os_pickup.mk" dest="hardware/qcom-caf/sdm660/Android.mk" />
+    <linkfile src="os_pickup_qssi.bp" dest="hardware/qcom-caf/sdm845/Android.bp" />
+    <linkfile src="os_pickup.mk" dest="hardware/qcom-caf/sdm845/Android.mk" />
+    <linkfile src="os_pickup_qssi.bp" dest="hardware/qcom-caf/sm8150/Android.bp" />
+    <linkfile src="os_pickup.mk" dest="hardware/qcom-caf/sm8150/Android.mk" />
+    <linkfile src="os_pickup_qssi.bp" dest="hardware/qcom-caf/sm8250/Android.bp" />
+    <linkfile src="os_pickup.mk" dest="hardware/qcom-caf/sm8250/Android.mk" />
+    <linkfile src="os_pickup_qssi.bp" dest="hardware/qcom-caf/sm8350/Android.bp" />
+    <linkfile src="os_pickup.mk" dest="hardware/qcom-caf/sm8350/Android.mk" />
+    <linkfile src="os_pickup.bp" dest="kernel/google/gs101/private/google-modules/Android.bp" />
+    <linkfile src="os_pickup_audio-ar.mk" dest="hardware/qcom-caf/sm8450/audio/Android.mk" />
+    <linkfile src="os_pickup_qssi.bp" dest="hardware/qcom-caf/sm8450/Android.bp" />
+    <linkfile src="os_pickup.mk" dest="hardware/qcom-caf/sm8450/Android.mk" />
+    <linkfile src="os_pickup_audio-ar.mk" dest="hardware/qcom-caf/sm8550/audio/Android.mk" />
+    <linkfile src="os_pickup_qssi.bp" dest="hardware/qcom-caf/sm8550/Android.bp" />
+    <linkfile src="os_pickup.mk" dest="hardware/qcom-caf/sm8550/Android.mk" />
+    <!-- add guards for Pixel kernel modules -->
+    <linkfile src="os_pickup.bp" dest="kernel/google/gs201/private/google-modules/Android.bp" />
+  </project>
+    <project name="device_qcom_sepolicy_vndr_sm6225" path="device/qcom/sepolicy_vndr/sm6225" remote="tapas" />
+    <project name="hardware_qcom-caf_sm6225_display" path="hardware/qcom-caf/sm6225/display" remote="tapas" />
+    <project name="hardware_qcom-caf_sm6225_media" path="hardware/qcom-caf/sm6225/media" remote="tapas" />
+    <project name="hardware_qcom-caf_sm6225_audio_pal" path="hardware/qcom-caf/sm6225/audio/pal" remote="tapas" />
+    <project name="hardware_qcom-caf_sm6225_audio_agm" path="hardware/qcom-caf/sm6225/audio/agm" remote="tapas" />
+    <project name="hardware_qcom-caf_sm6225_audio_primary-hal" path="hardware/qcom-caf/sm6225/audio/primary-hal" remote="tapas" />
+    <project name="hardware_qcom-caf_sm6225_data-ipa-cfg-mgr" path="hardware/qcom-caf/sm6225/data-ipa-cfg-mgr" remote="tapas" />
+    <project name="hardware_qcom-caf_sm6225_dataipa" path="hardware/qcom-caf/sm6225/dataipa" remote="tapas" />
+    <project name="hardware_xiaomi" path="hardware/xiaomi" remote="PixelOS" />
+
+    <project path="packages/apps/Updates" name="packages_apps_Updates" remote="tapas" />
+    <project path="frameworks/base" name="frameworks_base" groups="pdk-cw-fs,pdk-fs" remote="tapas" />
+    <project path="vendor/extra" name="vendor_extra" remote="tapas" />
+
+</manifest>
