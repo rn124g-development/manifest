@@ -9,6 +9,7 @@
     <remove-project name="LineageOS/android_hardware_qcom-caf_common" />
     <remove-project name="packages_apps_Updates" />
     <remove-project name="frameworks_base" />
+    <remove-project name="packages_apps_Settings" />
 
     <!-- Sync the specified projects from the "tapas" remote -->
   <project path="build/make" name="build" groups="pdk" remote="tapas">
@@ -64,5 +65,6 @@
     <project path="packages/apps/Updates" name="packages_apps_Updates" remote="tapas" />
     <project path="frameworks/base" name="frameworks_base" groups="pdk-cw-fs,pdk-fs" remote="tapas" />
     <project path="vendor/extra" name="vendor_extra" remote="tapas" />
+    <project path="packages/apps/Settings" name="packages_apps_Settings" groups="pdk-fs" remote="tapas" />
 
 </manifest>
