@@ -11,6 +11,7 @@
     <remove-project name="frameworks_base" />
     <remove-project name="packages_apps_Settings" />
     <remove-project name="platform/packages/services/DeviceAsWebcam" />
+    <remove-project name="system_update_engine" />
 
     <!-- Sync the specified projects from the "tapas" remote -->
   <project path="build/make" name="build" groups="pdk" remote="tapas">
@@ -68,5 +69,7 @@
     <project path="vendor/extra" name="vendor_extra" remote="tapas" />
     <project path="packages/apps/Settings" name="packages_apps_Settings" groups="pdk-fs" remote="tapas" />
     <project path="packages/services/DeviceAsWebcam" name="android_packages_services_DeviceAsWebcam" groups="pdk-cw-fs,pdk-fs" remote="tapas" />
+
+    <project path="system/update_engine" name="system_update_engine" groups="pdk" remote="tapas" />
 
 </manifest>
