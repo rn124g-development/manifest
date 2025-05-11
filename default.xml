@@ -1073,4 +1073,7 @@
    <!-- Lineage Repos -->
    <include name="snippets/lineage.xml" />
 
+   <!-- tapas -->
+   <include name="snippets/tapas.xml" />
+
 </manifest>
